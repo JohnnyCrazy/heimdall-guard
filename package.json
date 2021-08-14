@@ -77,7 +77,7 @@
     "*.ts": "eslint --fix"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "release": {
     "branches": [
