@@ -1,6 +1,6 @@
 {
   "name": "heimdall-guard",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "An authorization library which allows or restricts access to specific resources. It implements ABAC. Based on blitz-guard",
   "author": "Jonas Dellinger <jonas@dellinger.dev> (https://dellinger.dev)",
   "license": "MIT",
@@ -27,7 +27,8 @@
     "build": "rollup -c rollup.config.js",
     "test": "jest",
     "lint": "eslint src/**/*.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "semantic-release": "semantic-release"
   },
   "importSort": {
     ".ts": {
@@ -67,10 +68,31 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-typescript2": "^0.30.0",
+    "semantic-release": "^17.4.4",
     "ts-jest": "^27.0.4",
+    "tslib": "^2.3.1",
     "typescript": "^4.3.5"
   },
   "lint-staged": {
-    "*.js": "eslint src/**/*.ts"
+    "*.ts": "eslint --fix"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "release": {
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "main",
+      "next",
+      "next-major",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ]
   }
 }

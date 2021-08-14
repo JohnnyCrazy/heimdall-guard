@@ -1,0 +1,20 @@
+name: Build & Test & Maybe Release
+
+on: [push, pull_request]
+
+jobs:
+  main:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - run: yarn
+      - run: yarn build
+      - run: yarn test
+      - name: Release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.PH_GH_TOKEN }}
+        run: yarn semantic-release
