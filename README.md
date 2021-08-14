@@ -1,5 +1,7 @@
 # Heimdall Guard
 
+[![npm heimdall-guard](https://img.shields.io/npm/v/heimdall-guard?label=npm%20-%20heimdall-guard&style=flat-square)](https://www.npmjs.com/package/heimdall-guard)
+
 A simple authorization module based on Attribute-based access control (ABAC). Inspired by [blitz-guard](https://github.com/ntgussoni/blitz-guard).
 
 ```ts
